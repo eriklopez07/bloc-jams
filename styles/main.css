@@ -1,0 +1,63 @@
+/* box-sizing: border-box universal style */
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* Global Styles */
+html {
+    height: 100%;
+    font-size: 100%;
+}
+
+body {
+    font-family: 'Open Sans';
+    color: white;
+    min-height: 100%;
+}
+
+.navbar {
+    padding: 0.5rem;
+    background-color: rgb(101,18,95);
+}
+
+.navbar > .logo {
+    position: relative;
+    left: 2rem;
+}
+
+.container {
+    /*Margin and max-width set the max the page can extend*/
+    margin: 0 auto;
+    max-width: 64rem;
+    /*Recall that the second argument of the margin shorthand determines the size of the margin on the left and right side of the element whenever there are only two arguments given. When a width is "fixed" (meaning there is a width or max-width defined), setting the left and right margins to auto will center the element.*/
+}
+
+/* Medium and small screeens (640px) */
+@media (min-width: 640px) {
+    /* Styles infromation go here */
+    html {
+        font-size: 112%;
+    }
+    .column {
+        float: left;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .column.full { width: 100%; }
+    .column.two-thirds { width: 66.7%; }
+    .column.half { width: 50%; }
+    .column.third { width: 33.3%; }
+    .column.fourth {width: 25%; }
+    .column.flow-opposite { float: right; }
+}
+
+/* Large screens (1024px) */
+
+@media (min-width: 1024px) {
+    /* Styles information go here*/
+    html {
+        font-size: 120%;
+    }
+}
