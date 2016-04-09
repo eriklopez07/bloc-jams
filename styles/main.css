@@ -61,3 +61,13 @@ body {
         font-size: 120%;
     }
 }
+
+/*Clearfi classes with pseudo selectors*/
+
+.clearfix::before .clearfix::after {
+    content: " ";
+    display: table;
+}
+.clearfix::after {
+    clear: both;
+}
