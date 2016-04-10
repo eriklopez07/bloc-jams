@@ -52,9 +52,17 @@ body {
     text-transform: uppercase;
     cursor: pointer;
 }
- .links-container .navbar-link:hover {
+
+.links-container .navbar-link:active{
+    background-color: white;
+    color: rgb(233, 50, 117);
+}
+
+.links-container .navbar-link:hover {
      color: rgb(233,50,117);
  }
+
+
 
 .container {
     /*Margin and max-width set the max the page can extend*/
