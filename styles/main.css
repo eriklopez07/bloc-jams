@@ -18,14 +18,43 @@ body {
 }
 
 .navbar {
+    position: relative;
     padding: 0.5rem;
-    background-color: rgb(101,18,95);
+    background-color: rgba(101,18,95,0.5); /* Adds  opacity*/
+    z-index: 1; /*Adds a third dimesnsion to the placement of elements. By adding a z-index the layering of elements is specified. In this situation the navbar will be displayed on top of anything = layer 1*/
 }
 
 .navbar > .logo {
     position: relative;
     left: 2rem;
+    cursor: pointer; /* produces the finger-pointer icon when you hover over the logo */
 }
+.navbar .links-container {
+    display: table;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100px;
+    color: white;
+    text-decoration: none;
+}
+.links-container .navbar-link {
+    display: table-cell;
+    position: relative;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    vertical-align: middle; /*Centers vertiacally the element of the cell*/
+    color: white;
+    font-size: 0.625rem;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+ .links-container .navbar-link:hover {
+     color: rgb(233,50,117);
+ }
 
 .container {
     /*Margin and max-width set the max the page can extend*/
