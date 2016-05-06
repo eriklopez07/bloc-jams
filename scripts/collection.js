@@ -1,0 +1,25 @@
+var collectionItemTemplate =
+    '<div class="collection-album-container column fourth">'
+    + ' <img src="assests/images/album_covers/01.png"/>'
+    + ' <div class="collection-album-info caption">'
+    + '  <p>'
+    + '  <a class="album-name" href="/album.html"> The Colors </a>'
+    + '  <br/>'
+    + '  <a href="/album.html"> Pablo Picasso </a>'
+    + '  </br>'
+    + '  X songs'
+   + '      <br/>'
+   + '    </p>'
+   + '  </div>'
+   + '</div>'
+;
+
+window.onload= function(){
+    //The var collectionContanier selects the element 'album-covers' in the HTML file
+    var collectionContainer = document.getElementByClassName('album-covers')[0];
+    collectionContainer.innerHTML = '';
+    // The for loop generates the HTML from the var collectionItemTemplate
+    for (var i =0; i < 12; i++){
+        collectionContainer.innerHTML += collectionItemTemplate;
+    }
+}
