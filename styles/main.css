@@ -71,6 +71,10 @@ body {
     /*Recall that the second argument of the margin shorthand determines the size of the margin on the left and right side of the element whenever there are only two arguments given. When a width is "fixed" (meaning there is a width or max-width defined), setting the left and right margins to auto will center the element.*/
 }
 
+ .container.narrow {
+     max-width: 56rem;
+ }
+
 /* Medium and small screeens (640px) */
 @media (min-width: 640px) {
     /* Styles infromation go here */
