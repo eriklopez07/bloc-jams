@@ -48,7 +48,8 @@ var albumAnohni = {
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
-      + '  <td class="song-item-number">' + songNumber + '</td>'
+     // the variable data-song-number allows us to store to access the data held in the attribute using DOM methods when the mouse leaves the table row, and the song number's table cell returns to its original state.
+    + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
       + '</tr>'
@@ -81,9 +82,34 @@ var albumAnohni = {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
      }
  };
- 
+ var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+//songRows selects the element with the class album-view-song-time
+var songRows = document.getElementsByClassName('album-view-song-item');
+var playButtonTemplate= '<a class="album-song-button"><span class="ion-play"></span></a>';
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
+     
+     
+        //This function listens for a hovering over an element.
+        songListContainer.addEventListener('mouseover', function(event) {
+        //The target property on the object selected below stores the event occured
+        //  console.log(event.target);
+        // parentElement and className properties together make sure that it is only acted on the table row selected.      
+        if (event.target.parentElement.className === 'album-view-song-item'){
+            // Change the content from the number to the play button's HTML by selecting the event's element based on a query selector
+            event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+            //We use the querySelector() method because we only need to return a single element with the .song-item-number class.
+            }      
+        });
+        
+        for (var i = 0; i <  songRows.length; i++){
+            songRows[i].addEventListener('mouseleave', function(event){
+               //This reverts where the mouse has left the table row selected
+                this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+            });
+        //The getAttribute() method takes a single argument: a string with the name of the attribute whose value we want to retrieve. When the mouse leaves a selected table row, it will change back to the song number using the value obtained from this method //
+        }
+     
      var albums = [albumPicasso, albumMarconi, albumAnohni];
      var index = 0;
      albumImage.addEventListener("click", function(event){
