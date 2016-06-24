@@ -112,7 +112,7 @@ var songRows = document.getElementsByClassName('album-view-song-item');
 var playButtonTemplate= '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 //This variable is set to null because nothing should be playing
-var currentlyPlanyingSong = null;
+var currentlyPlayingSong = null;
 
 
  window.onload = function() {
@@ -121,6 +121,7 @@ var currentlyPlanyingSong = null;
      
         //This function listens for a hovering over an element.
         songListContainer.addEventListener('mouseover', function(event) {
+            console.log('mouseover');
         /*The target property on the object selected below stores the event occured
         /*  console.log(event.target);
         /*parentElement and className properties together make sure that it is only acted on the table row /*selected.*/      
@@ -196,14 +197,14 @@ var getSongItem = function (element){
 var clickHandler = function (targetElement){
     var songItem = getSongItem(targetElement);
     //The first segments starts to play the selected song
-    if (currentlyPlanyingSong === null){
+    if (currentlyPlayingSong === null){
         songItem.innerHTML = pauseButtonTemplate;
-        currentlyPlanyingSong = songItem.getAttribute('data-song-number');
+        currentlyPlayingSong = songItem.getAttribute('data-song-number');
     } 
     //Stops the song because it is the current song playing
-    else if( currentlyPlanyingSong === songItem.getAttribute('data-song-number')){
+    else if( currentlyPlayingSong === songItem.getAttribute('data-song-number')){
         songItem.innerHTML = playButtonTemplate;
-        currentlyPlanyingSong = null;
+        currentlyPlayingSong = null;
      } 
     //It is a new song that should be playing 
     else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
