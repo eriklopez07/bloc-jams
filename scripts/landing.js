@@ -13,9 +13,10 @@ var animatePoints = function() {
         $(this).css({
             opacity: 1,
             transform: 'scaleX(1) translateY(0)'
-    });
-};
+        });
+    };
     $.each($('.point'), revealPoint);
+};
 
 /*var animatePoints = function(points) {
     forEach(points, revealPoint);
